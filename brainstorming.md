@@ -44,4 +44,4 @@
 - **Habit:** Most people have at least three meals per day which means there's multiple opportunities to use this app to create content and users could login to browse for other people's recipes all the time.
 - **Scope:** The most stripped down version of the app would call an api and display recipes to a user. A step above that would allow users to upload their own recipes and see other users recipes. Our goal for the app is to let users interact with each other and give feedback to other
 
-## Final Idea: Recipe Social Network (Munch Box)
+## Final Idea: Recipe Social Network (MunchBox)

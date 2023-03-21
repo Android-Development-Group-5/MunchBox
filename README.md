@@ -15,7 +15,6 @@ MunchBox is designed with a user-friendly interface to allow users to easily bro
 
 ### App Evaluation
 
-[Evaluation of your app across the following attributes]
 - **Category:**
     - This app falls under the food and drink category because its primary purpose is to provide users with access to a wide range of recipes and cooking-related content. At the same time, it also falls under the social networking category since it allows users to interact with each other by sharing, commenting on, and upvoting/downvoting recipes.
 - **Mobile:**

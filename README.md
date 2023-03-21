@@ -88,21 +88,27 @@ MunchBox is designed with a user-friendly interface to allow users to easily bro
 
 ### [BONUS] Digital Wireframes & Mockups
 Recipe Feed
+
 ![](https://i.imgur.com/j52Y0gW.jpg)
 
 Detailed Recipe Screen
+
 ![](https://i.imgur.com/jmjl675.jpg)
 
 Create Recipe Screen
+
 ![](https://i.imgur.com/g06ib1d.jpg)
 
 Login Screen
+
 ![](https://i.imgur.com/mtCEdRk.jpg)
 
 Signup Screen
+
 ![](https://i.imgur.com/n1l1Va6.jpg)
 
 
 ### [BONUS] Interactive Prototype
 Walkthrough [GIF]
+
 ![](https://i.imgur.com/3A1itT1.gif)

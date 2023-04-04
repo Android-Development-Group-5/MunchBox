@@ -78,13 +78,13 @@ class AddRecipeFragment : Fragment() {
         }
         addIngredientButton.setOnClickListener {
             ingredients.add(IngredientsItem(""))
-            ingredientsAdapter.notifyDataSetChanged()
+            ingredientsAdapter.notifyItemInserted(ingredientsAdapter.itemCount)
             removeIngredientButton.visibility = View.VISIBLE
         }
         removeIngredientButton.setOnClickListener {
             if(ingredients.size > 1) {
                 ingredients.removeAt(ingredientsAdapter.itemCount - 1)
-                ingredientsAdapter.notifyDataSetChanged()
+                ingredientsAdapter.notifyItemRemoved(ingredientsAdapter.itemCount)
             }
             if(ingredients.size <= 1){
                 removeIngredientButton.visibility = View.INVISIBLE

@@ -8,7 +8,7 @@
     >
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/home_top_navigation"
+        android:id="@+id/discover_top_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -17,11 +17,11 @@
         app:menu="@menu/top_navigation_menu" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/home_recipe_list"
+        android:id="@+id/recipe_list"
         android:layout_width="match_parent"
         android:layout_height="550dp"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
-        app:layout_constraintTop_toBottomOf="@+id/home_top_navigation" />
+        app:layout_constraintTop_toBottomOf="@+id/discover_top_navigation" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

@@ -1,7 +1,10 @@
 package com.group5.munchbox
 
 import android.app.Activity.RESULT_OK
+import android.app.Instrumentation.ActivityResult
 import android.content.Intent
+import android.content.Intent.ACTION_GET_CONTENT
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,8 +15,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
+import java.io.File
+import java.net.URI
 
 // TODO: Rename parameter arguments, choose names that match
 
@@ -25,8 +36,6 @@ import androidx.recyclerview.widget.RecyclerView
 private const val TAG = "AddRecipeFragment/"
 
 class AddRecipeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-
     private val ingredients = mutableListOf<IngredientsItem>(IngredientsItem(""))
 
     private lateinit var ingredientsList : RecyclerView
@@ -40,6 +49,8 @@ class AddRecipeFragment : Fragment() {
     private lateinit var removeIngredientButton: Button
 
     private lateinit var recipeImage: ImageView
+
+    var image_path = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,8 +79,28 @@ class AddRecipeFragment : Fragment() {
 
         recipeImage = view.findViewById(R.id.RecipeImage)
 
+        fun validateForm(): Boolean {
+           if(recipeName.text.isEmpty() || recipeDetails.text.isEmpty() || ingredients.isEmpty()){
+               return false
+           }
+            return true
+        }
         addRecipeButton.setOnClickListener {
-            Toast.makeText(context, ingredients.toString(), Toast.LENGTH_SHORT).show()
+            if(validateForm()){
+                val database = Firebase.database
+                val myRef = database.getReference("Recipes")
+
+                val recipeId = myRef.push().key!!
+                val recipe = RecipeModel(recipeId, recipeName.text.toString(), recipeDetails.text.toString(), "images/$recipeId", ingredients)
+                myRef.child(recipeId).setValue(recipe)
+                    .addOnSuccessListener{
+                        Toast.makeText(context, "Recipe has been added successfully", Toast.LENGTH_SHORT).show()
+                   }
+                val storageRef = FirebaseStorage.getInstance().getReference("images/$recipeId.png")
+                storageRef.putFile(image_path.toUri())
+            }else{
+                Toast.makeText(context, "All fields are required",Toast.LENGTH_SHORT).show()
+            }
             ingredients.forEach{println(it.name) }
 
         }
@@ -102,13 +133,24 @@ class AddRecipeFragment : Fragment() {
     private fun pickImageFromGallery(){
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
+        intent.setAction(Intent.ACTION_GET_CONTENT)
+
         startActivityForResult(intent, IMAGE_REQUEST_CODE)
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK){
+        if (requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK && data != null){
             recipeImage.setImageURI(data?.data)
+            image_path = data?.data.toString()
+           // val file_uri = data?.data
+           //val storageRef = FirebaseStorage.getInstance().getReference("images/test.png")
+           // if (file_uri != null) {
+             //   storageRef.putFile(file_uri)
+           // }
+
+
         }
     }
 }

@@ -25,6 +25,8 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import java.io.File
 import java.net.URI
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 
 // TODO: Rename parameter arguments, choose names that match
 
@@ -49,6 +51,8 @@ class AddRecipeFragment : Fragment() {
     private lateinit var removeIngredientButton: Button
 
     private lateinit var recipeImage: ImageView
+
+    private lateinit var auth: FirebaseAuth
 
     var image_path = ""
 
@@ -86,12 +90,15 @@ class AddRecipeFragment : Fragment() {
             return true
         }
         addRecipeButton.setOnClickListener {
+            val user = FirebaseAuth.getInstance().currentUser
             if(validateForm()){
+
+
                 val database = Firebase.database
                 val myRef = database.getReference("Recipes")
 
                 val recipeId = myRef.push().key!!
-                val recipe = RecipeModel(recipeId, recipeName.text.toString(), recipeDetails.text.toString(), "images/$recipeId", ingredients)
+                val recipe = RecipeModel(recipeId, user?.uid,recipeName.text.toString(), recipeDetails.text.toString(), "images/$recipeId", ingredients)
                 myRef.child(recipeId).setValue(recipe)
                     .addOnSuccessListener{
                         Toast.makeText(context, "Recipe has been added successfully", Toast.LENGTH_SHORT).show()

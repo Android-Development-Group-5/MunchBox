@@ -98,6 +98,11 @@ class AddRecipeFragment : Fragment() {
                    }
                 val storageRef = FirebaseStorage.getInstance().getReference("images/$recipeId.png")
                 storageRef.putFile(image_path.toUri())
+                // clear the form after submitting
+                //recipeName.setText("")
+                //recipeDetails.setText("")
+                //ingredients.clear()
+                //recipeImage.setImageResource(0)
             }else{
                 Toast.makeText(context, "All fields are required",Toast.LENGTH_SHORT).show()
             }

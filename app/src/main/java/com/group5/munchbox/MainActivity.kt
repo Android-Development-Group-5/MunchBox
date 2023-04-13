@@ -10,7 +10,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -22,10 +21,7 @@ class MainActivity : AppCompatActivity() {
         if (currentUser == null) {
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))
         }
-        findViewById<TextView>(R.id.hello).setOnClickListener{
-            Firebase.auth.signOut()
-            startActivity(Intent(this@MainActivity, LoginActivity::class.java))
-        }
+
 
         replaceFragment(AddRecipeFragment())
         // define your fragments here

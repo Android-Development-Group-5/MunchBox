@@ -27,7 +27,7 @@ class IngredientsAdapter(private val context: Context, private val IngredientIte
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val ingredientItems = IngredientItems.get(position)
+        val ingredientItems = IngredientItems[position]
         holder.nameTextView.setText(ingredientItems.name)
         holder.nameTextView.hint = "Ingredient"
         holder.nameTextView.doOnTextChanged { text, start, before, count ->

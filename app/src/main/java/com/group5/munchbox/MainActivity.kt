@@ -4,10 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -27,10 +29,9 @@ class MainActivity : AppCompatActivity() {
 
         replaceFragment(AddRecipeFragment())
         // define your fragments here
-        val home: Fragment = HomeFragment()
-        val addRecipe: Fragment = AddRecipeFragment()
-        // val test: Fragment = DetailedRecipeFragment()
-
+        //val fragment1: Fragment
+        val fragment2: Fragment = AddRecipeFragment()
+        //val fragment3: Fragment
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
 
@@ -38,9 +39,9 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { item ->
             lateinit var fragment: Fragment
             when (item.itemId) {
-                R.id.home -> fragment = home
-                R.id.add_recipe -> fragment = addRecipe
-                // R.id.profile -> fragment = test
+                //R.id.home -> fragment = fragment1
+                R.id.add_recipe -> fragment = fragment2
+                //R.id.profile -> fragment = fragment3
             }
             replaceFragment(fragment)
             true
@@ -57,5 +58,5 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.app_frame_layout, fragment)
         fragmentTransaction.commit()
     }
-    // val fragmentManager: FragmentManager = supportFragmentManager
+    val fragmentManager: FragmentManager = supportFragmentManager
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- this layout will contain the following information:
+         1) number of upvotes
+         2) number of downvotes
+         3) number of comments
+
+         be sure to use <include layout="@layout/recipe_stats"/> wherever
+         this layout is needed
+         -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

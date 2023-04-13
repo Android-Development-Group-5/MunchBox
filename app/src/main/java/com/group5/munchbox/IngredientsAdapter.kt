@@ -11,7 +11,7 @@ import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
 
-class IngredientsAdapter(private val context: Context, private val IngredientItems: List<IngredientsItem>): RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
+class IngredientsAdapter(private val context: Context, private val IngredientItems: MutableList<IngredientsItem>): RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val nameTextView: EditText
         init {
@@ -31,7 +31,9 @@ class IngredientsAdapter(private val context: Context, private val IngredientIte
         holder.nameTextView.setText(ingredientItems.name)
         holder.nameTextView.hint = "Ingredient"
         holder.nameTextView.doOnTextChanged { text, start, before, count ->
-            IngredientItems[position].name = text.toString()
+            if(position < itemCount) {
+                IngredientItems[position].name = text.toString()
+            }
         }
     }
 

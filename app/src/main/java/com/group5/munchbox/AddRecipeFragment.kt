@@ -121,6 +121,7 @@ class AddRecipeFragment : Fragment() {
             if(ingredients.size > 1) {
                 ingredients.removeAt(ingredientsAdapter.itemCount - 1)
                 ingredientsAdapter.notifyItemRemoved(ingredientsAdapter.itemCount)
+
             }
             if(ingredients.size <= 1){
                 removeIngredientButton.visibility = View.INVISIBLE

@@ -44,6 +44,20 @@
     <!--        app:layout_constraintTop_toTopOf="parent"-->
     <!--        app:layout_constraintVertical_bias="0.497"/>-->
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-90dp"
+        android:text="MunchBox"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/view"
         android:layout_width="332dp"
@@ -53,83 +67,82 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="70dp"
         app:layout_constraintVertical_bias="0.497"
         app:cardCornerRadius="20dp"
         >
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="150dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="25dp"
+            android:text="Sign In"
+            android:fontFamily="serif"
+            android:textSize="35sp"
+            android:textColor="#388a66"
+            />
 
         <EditText
             android:id="@+id/editTextTextPassword"
             android:layout_width="211dp"
             android:layout_height="58dp"
             android:layout_marginStart="58dp"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="150dp"
             android:layout_marginEnd="32dp"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            android:textColorHint="@color/black" />
 
         <EditText
             android:id="@+id/editTextTextPersonName"
             android:layout_width="206dp"
             android:layout_height="62dp"
             android:layout_marginStart="58dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="32dp"
             android:ems="10"
             android:hint="Username"
             android:inputType="textPersonName"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view" />
+            android:textColorHint="@color/black" />
 
         <Button
             android:id="@+id/mainButton"
             android:layout_width="212dp"
             android:layout_height="54dp"
             android:layout_marginStart="58dp"
-            android:layout_marginTop="220dp"
+            android:layout_marginTop="225dp"
             android:layout_marginEnd="32dp"
             android:text="login"
             android:textSize="16sp"
-            app:cornerRadius="@dimen/activity_horizontal_margin"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+            app:cornerRadius="@dimen/activity_horizontal_margin" />
 
         <Button
             android:id="@+id/switchButton"
             android:layout_width="105dp"
             android:layout_height="64dp"
             android:layout_marginStart="114dp"
-            android:layout_marginTop="369dp"
+            android:layout_marginTop="350dp"
             android:text="sign up"
             android:textSize="16sp"
-            app:cornerRadius="@dimen/activity_horizontal_margin"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view" />
+            app:cornerRadius="@dimen/activity_horizontal_margin" />
 
         <TextView
             android:id="@+id/helpText"
-            android:layout_width="176dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="78dp"
+            android:layout_width="300dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="305dp"
             android:layout_marginBottom="29dp"
             android:text="Need an account?"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/switchButton"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/mainButton" />
+            android:textSize="20sp" />
 
     </androidx.cardview.widget.CardView>
 

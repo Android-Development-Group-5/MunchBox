@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         // define your fragments here
         val home: Fragment = HomeFragment()
         val addRecipe: Fragment = AddRecipeFragment()
+        val profile: Fragment = ProfileFragment()
         // val test: Fragment = DetailedRecipeFragment()
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
@@ -36,11 +37,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.home -> fragment = home
                 R.id.add_recipe -> fragment = addRecipe
-                R.id.profile -> {
-                    auth.signOut()
-                    startActivity(Intent(this@MainActivity, LoginActivity::class.java))
-                    return@setOnItemSelectedListener true
-                }
+                R.id.profile -> fragment = profile
             }
             replaceFragment(fragment)
             true

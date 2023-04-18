@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MunchBox"
         tools:targetApi="31">
+        <activity android:name=".DetailedActivity"
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="false" />

@@ -33,7 +33,7 @@
                 android:gravity="center_horizontal"
                 android:layout_margin="15dp"
                 android:textStyle="bold"
-                android:textColor="@color/material_dynamic_primary10"
+                android:textColor="?attr/colorPrimary"
                 app:layout_constraintTop_toBottomOf="@+id/detailed_recipe_image"
                 app:layout_constraintBottom_toTopOf="@id/detailed_recipe_username"
                 tools:text="Shrimp Scampi" />
@@ -114,6 +114,7 @@
         android:elevation="6dp"
         app:cardCornerRadius="6dp"
         android:layout_alignParentBottom="true">
+
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

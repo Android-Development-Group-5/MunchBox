@@ -5,7 +5,22 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backdrop">
+    android:background="@color/black">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:alpha="0.6"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backdrop" />
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -17,89 +32,106 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation_menu" />
 
-    <View
+    <!--    <View-->
+    <!--        android:id="@+id/view"-->
+    <!--        android:layout_width="332dp"-->
+    <!--        android:layout_height="444dp"-->
+    <!--        android:background="#FFFFFF"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.493"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.497"/>-->
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/view"
         android:layout_width="332dp"
         android:layout_height="444dp"
-        android:background="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497" />
+        app:layout_constraintVertical_bias="0.497"
+        app:cardCornerRadius="20dp"
+        >
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="211dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="211dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="130dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="206dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view" />
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="206dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/view" />
 
-    <Button
-        android:id="@+id/mainButton"
-        android:layout_width="212dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:text="login"
-        android:textSize="16sp"
-        app:cornerRadius="6dp"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        <Button
+            android:id="@+id/mainButton"
+            android:layout_width="212dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="220dp"
+            android:layout_marginEnd="32dp"
+            android:text="login"
+            android:textSize="16sp"
+            app:cornerRadius="@dimen/activity_horizontal_margin"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
-    <Button
-        android:id="@+id/switchButton"
-        android:layout_width="105dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="369dp"
-        android:text="sign up"
-        android:textSize="16sp"
-        app:cornerRadius="6dp"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view" />
+        <Button
+            android:id="@+id/switchButton"
+            android:layout_width="105dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="114dp"
+            android:layout_marginTop="369dp"
+            android:text="sign up"
+            android:textSize="16sp"
+            app:cornerRadius="@dimen/activity_horizontal_margin"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/view" />
 
-    <TextView
-        android:id="@+id/helpText"
-        android:layout_width="176dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="78dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginBottom="29dp"
-        android:text="Need an account?"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/switchButton"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/mainButton" />
+        <TextView
+            android:id="@+id/helpText"
+            android:layout_width="176dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="78dp"
+            android:layout_marginTop="305dp"
+            android:layout_marginBottom="29dp"
+            android:text="Need an account?"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/switchButton"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/mainButton" />
+
+    </androidx.cardview.widget.CardView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

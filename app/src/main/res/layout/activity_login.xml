@@ -118,7 +118,7 @@
         <TextView
             android:id="@+id/helpText"
             android:layout_width="176dp"
-            android:layout_height="36dp"
+            android:layout_height="50dp"
             android:layout_marginStart="78dp"
             android:layout_marginTop="305dp"
             android:layout_marginBottom="29dp"

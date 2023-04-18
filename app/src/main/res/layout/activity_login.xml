@@ -89,31 +89,31 @@
             app:layout_constraintStart_toStartOf="@+id/view"
             app:layout_constraintTop_toTopOf="@+id/view" />
 
-        <Button
-            android:id="@+id/mainButton"
-            android:layout_width="212dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="58dp"
-            android:layout_marginTop="220dp"
-            android:layout_marginEnd="32dp"
-            android:text="login"
-            android:textSize="16sp"
-            app:cornerRadius="@dimen/activity_horizontal_margin"
-            app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+    <Button
+        android:id="@+id/mainButton"
+        android:layout_width="212dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="login"
+        android:textSize="16sp"
+        app:cornerRadius="6dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
-        <Button
-            android:id="@+id/switchButton"
-            android:layout_width="105dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="114dp"
-            android:layout_marginTop="369dp"
-            android:text="sign up"
-            android:textSize="16sp"
-            app:cornerRadius="@dimen/activity_horizontal_margin"
-            app:layout_constraintStart_toStartOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view" />
+    <Button
+        android:id="@+id/switchButton"
+        android:layout_width="105dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="369dp"
+        android:text="sign up"
+        android:textSize="16sp"
+        app:cornerRadius="6dp"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view" />
 
         <TextView
             android:id="@+id/helpText"

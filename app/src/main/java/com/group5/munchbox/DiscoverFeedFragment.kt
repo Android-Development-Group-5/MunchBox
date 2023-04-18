@@ -29,7 +29,7 @@ private const val TAG = "DiscoverFeedFragment/"
 private const val NUM_RECIPES = 10
 private const val RECIPE_SEARCH_URL = "https://www.themealdb.com/api/json/v1/1/random.php"
 // private const val API_KEY = "1"
-const val RECIPE_EXTRA = "RECIPE_EXTRA"
+const val RECIPE_EXTRA = "API_RECIPE"
 
 /**
  * A simple [Fragment] subclass.

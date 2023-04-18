@@ -33,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
         var usernameText: EditText = findViewById(R.id.editTextTextPersonName)
         var passwordText: EditText = findViewById(R.id.editTextTextPassword)
         var layout: View = findViewById(R.id.constraintLayout)
+        var cardLabel: TextView = findViewById(R.id.label)
         mainButton.setOnClickListener {
             if (usernameText.text.length == 0 || passwordText.text.length == 0) {
                 Snackbar.make(layout, "Make sure you've written a valid username/password combination.", Snackbar.LENGTH_SHORT).show()
@@ -82,11 +83,13 @@ class LoginActivity : AppCompatActivity() {
                     mainButton.text = "sign up"
                     switchButton.text = "login"
                     helpText.text = "Already have an account?"
+                    cardLabel.text = "Register"
                 }
                 "sign up" -> {
                     mainButton.text = "login"
                     switchButton.text = "sign up"
                     helpText.text = "Need an account?"
+                    cardLabel.text = "Sign In"
                 }
             }
         }

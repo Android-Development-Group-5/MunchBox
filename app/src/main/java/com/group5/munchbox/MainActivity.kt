@@ -44,9 +44,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Set default selection
-        //bottomNavigationView.selectedItemId = R.id.home
-        //TODO("replace line below with line above")
-        bottomNavigationView.selectedItemId = R.id.add_recipe
+        bottomNavigationView.selectedItemId = R.id.home
     }
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager

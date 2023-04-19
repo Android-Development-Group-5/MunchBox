@@ -1,8 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/black">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:alpha="0.6"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backdrop" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="15dp"
+        app:cardCornerRadius="20dp"
+        >
+
+
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/AddRecipeScrollView">
@@ -12,18 +47,22 @@
         android:layout_height="wrap_content"
         android:id="@+id/AddRecipeConstraintLayout">
 
+
+
         <Button
             android:id="@+id/AddRecipeButton"
-            android:layout_width="173dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
             android:layout_marginTop="8dp"
-            android:text="Submit Recipe"
+            android:layout_marginHorizontal="20dp"
+            android:text="Add Recipe"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/RecipeImage"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="1.0"
+            app:cornerRadius="16dp"/>
 
         <EditText
             android:id="@+id/RecipeName"
@@ -62,15 +101,16 @@
 
         <Button
             android:id="@+id/AddIngredientButton"
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
+            android:text="+ Add Ingredient"
             android:textSize="12sp"
-            android:text="Add Ingredient"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/IngredientsList"
-            app:layout_constraintTop_toBottomOf="@+id/IngredientsList" />
+            app:layout_constraintTop_toBottomOf="@+id/IngredientsList"
+            app:cornerRadius="@dimen/activity_horizontal_margin"/>
 
         <Button
             android:id="@+id/RemoveIngredientButton"
@@ -96,3 +136,5 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

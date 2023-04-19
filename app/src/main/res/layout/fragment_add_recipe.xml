@@ -120,6 +120,7 @@
             android:text="Remove Ingredient"
             android:textSize="12sp"
             android:visibility="invisible"
+            android:backgroundTint="#e66576"
             app:layout_constraintEnd_toEndOf="@+id/IngredientsList"
             app:layout_constraintTop_toBottomOf="@+id/IngredientsList" />
 

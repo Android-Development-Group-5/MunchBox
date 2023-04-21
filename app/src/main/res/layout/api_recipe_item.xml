@@ -7,7 +7,8 @@
     android:layout_marginHorizontal="10dp"
     android:layout_marginVertical="10dp"
     android:clickable="true"
-    app:cardCornerRadius="20dp">
+    app:cardCornerRadius="20dp"
+    android:backgroundTint="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -43,14 +44,18 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:lines="1"
-                tools:text="Recipe Name" />
+                tools:text="Recipe Name"
+                android:textColor="#25265E"
+                android:textStyle="bold"
+                />
 
             <TextView
                 android:id="@+id/api_recipe_source"
                 style="@style/TextAppearance.Material3.LabelSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Source" />
+                tools:text="Source"
+                android:textColor="#888888"/>
 
             <TextView
                 android:id="@+id/api_recipe_description"
@@ -59,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:lines="4"
+                android:textColor="#282e4a"
                 tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et ipsum mollis libero tincidunt mattis. Donec interdum tortor in ipsum euismod malesuada. Interdum et malesuada fames" />
 
         </LinearLayout>

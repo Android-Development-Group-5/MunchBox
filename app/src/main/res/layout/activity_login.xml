@@ -88,6 +88,7 @@
         android:layout_marginTop="50dp"
         app:layout_constraintVertical_bias="0.497"
         app:cardCornerRadius="20dp"
+        android:backgroundTint="@color/white"
         >
 
         <TextView
@@ -106,28 +107,33 @@
         <EditText
             android:id="@+id/editTextTextPassword"
             android:layout_width="211dp"
-            android:layout_height="58dp"
+            android:layout_height="50dp"
             android:layout_marginStart="58dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="155dp"
             android:layout_marginEnd="32dp"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
+            android:background="#F4F4F4"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="#686868"
+            android:paddingLeft="10dp"/>
 
         <EditText
             android:id="@+id/editTextTextPersonName"
             android:layout_width="206dp"
-            android:layout_height="62dp"
+            android:layout_height="50dp"
             android:layout_marginStart="58dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="85dp"
             android:layout_marginEnd="32dp"
             android:ems="10"
             android:hint="Username"
             android:inputType="textPersonName"
+            android:background="#F4F4F4"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="#686868"
+            android:paddingLeft="10dp"
+            />
 
         <Button
             android:id="@+id/mainButton"
@@ -137,6 +143,8 @@
             android:layout_marginTop="225dp"
             android:layout_marginEnd="32dp"
             android:text="login"
+            android:backgroundTint="#06977F"
+            android:textColor="@color/white"
             android:textSize="16sp"
             app:cornerRadius="@dimen/activity_horizontal_margin" />
 
@@ -147,6 +155,8 @@
             android:layout_marginStart="114dp"
             android:layout_marginTop="350dp"
             android:text="sign up"
+            android:backgroundTint="#06977F"
+            android:textColor="@color/white"
             android:textSize="16sp"
             app:cornerRadius="@dimen/activity_horizontal_margin" />
 

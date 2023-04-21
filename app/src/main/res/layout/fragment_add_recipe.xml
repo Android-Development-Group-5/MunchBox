@@ -34,6 +34,7 @@
         android:layout_marginHorizontal="15dp"
         android:layout_marginVertical="15dp"
         app:cardCornerRadius="20dp"
+        android:backgroundTint="@color/white"
         >
 
 
@@ -57,6 +58,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginHorizontal="20dp"
             android:text="Add Recipe"
+            android:backgroundTint="#06977F"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +70,7 @@
         <EditText
             android:id="@+id/RecipeName"
             android:layout_width="350dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="25dp"
             android:ems="10"
             android:inputType="textPersonName"
@@ -75,29 +78,41 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#F4F4F4"
+            android:textColor="@color/black"
+            android:textColorHint="#686868"
+            android:paddingLeft="10dp"
+            />
 
         <EditText
             android:id="@+id/RecipeDetails"
             android:layout_width="350dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="25dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Recipe Details"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/RecipeName" />
+            app:layout_constraintTop_toBottomOf="@+id/RecipeName"
+            android:background="#F4F4F4"
+            android:textColor="@color/black"
+            android:textColorHint="#686868"
+            android:paddingLeft="10dp"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/IngredientsList"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/RecipeDetails" />
+            app:layout_constraintTop_toBottomOf="@+id/RecipeDetails"
+            tools:listitem="@layout/ingredients_item"
+            android:overScrollMode="never"/>
 
         <Button
             android:id="@+id/AddIngredientButton"
@@ -106,6 +121,8 @@
             android:layout_marginTop="8dp"
             android:text="+ Add Ingredient"
             android:textSize="12sp"
+            android:backgroundTint="#06977F"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/IngredientsList"
@@ -121,6 +138,7 @@
             android:textSize="12sp"
             android:visibility="invisible"
             android:backgroundTint="#e66576"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/IngredientsList"
             app:layout_constraintTop_toBottomOf="@+id/IngredientsList" />
 
@@ -129,11 +147,12 @@
             android:layout_width="350dp"
             android:layout_height="220dp"
             android:layout_marginTop="20dp"
-            android:src="@android:drawable/ic_menu_gallery"
+            android:src="@drawable/add_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AddIngredientButton" />
+            app:layout_constraintTop_toBottomOf="@+id/AddIngredientButton"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

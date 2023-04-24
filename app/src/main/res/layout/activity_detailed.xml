@@ -35,8 +35,8 @@
         android:layout_marginHorizontal="15dp"
         android:layout_marginVertical="15dp"
         app:cardCornerRadius="20dp"
-        android:backgroundTint="@color/white"
-        >
+        android:backgroundTint="@color/white">
+
         <ImageView
             android:id="@+id/detailed_recipe_image"
             android:layout_width="match_parent"
@@ -47,7 +47,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:scaleType="centerCrop"/>
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -133,7 +132,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="15dp"
-                    android:layout_marginBottom="80dp"
+                    android:layout_marginBottom="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/instructions"
                     tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et ipsum mollis libero tincidunt mattis. Donec interdum tortor in ipsum euismod malesuada. Interdum et malesuada fames" />
@@ -149,6 +148,7 @@
     </ScrollView>
 
         <include layout="@layout/recipe_stats"
+            android:id="@+id/postInteraction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="665dp" />

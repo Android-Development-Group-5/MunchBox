@@ -7,4 +7,5 @@
     <string name="instructions">Instructions</string>
     <string name="tab_navigation">Tab Navigation</string>
     <string name="picture_of_recipe">Picture of Recipe</string>
+    <string name="checkmark_in_a_circle">Checkmark in a circle</string>
 </resources>

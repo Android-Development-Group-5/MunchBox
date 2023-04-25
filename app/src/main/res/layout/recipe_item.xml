@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="300dp"
     android:layout_marginHorizontal="30dp"
-    android:layout_marginVertical="15dp"
+    android:layout_marginVertical="20dp"
     android:clickable="true">
 
     <androidx.cardview.widget.CardView
@@ -42,7 +42,7 @@
              />
 
         <TextView
-            android:id="@+id/detailed_recipe_username"
+            android:id="@+id/recipe_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"

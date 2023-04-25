@@ -8,6 +8,10 @@ android {
     namespace 'com.group5.munchbox'
     compileSdk 33
 
+    buildFeatures{
+        viewBinding true
+    }
+
     defaultConfig {
         applicationId "com.group5.munchbox"
         minSdk 30

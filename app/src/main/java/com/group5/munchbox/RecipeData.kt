@@ -1,15 +1,15 @@
 package com.group5.munchbox
 
 class RecipeData {
-    var dataImage: String? = null
+    var recipeImage: String? = null
     var recipeName: String? = null
-    var username: String? = null
+    var userId: String? = null
     var recipeDetails: String? = null
 
-    constructor(dataImage: String?, recipeName: String?, username: String?, recipeDetails: String?) {
-        this.dataImage = dataImage
+    constructor(recipeImage: String?, recipeName: String?, userId: String?, recipeDetails: String?) {
+        this.recipeImage = recipeImage
         this.recipeName = recipeName
-        this.username = username
+        this.userId = userId
         this.recipeDetails = recipeDetails
     }
     constructor() {

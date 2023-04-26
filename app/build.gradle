@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -56,8 +57,9 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:20.5.0'
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
-
     // added the following
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.firebaseui:firebase-ui-storage:8.0.2'
+    kapt 'com.github.bumptech.glide:compiler:4.14.2'
 }

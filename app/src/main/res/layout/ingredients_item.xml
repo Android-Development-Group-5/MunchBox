@@ -17,7 +17,7 @@
         android:layout_marginBottom="5dp"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="3dp"
-        android:background="#F4F4F4"
+        android:background="@drawable/rounded_corner"
         android:textColor="@color/black"
         android:textColorHint="#686868"
         android:paddingLeft="10dp"

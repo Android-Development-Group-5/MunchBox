@@ -26,6 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/detailed_recipe_checkmark"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="2 tablespoons butter" />
+        tools:text="2 tablespoons butter"
+        android:textColor="#515663"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

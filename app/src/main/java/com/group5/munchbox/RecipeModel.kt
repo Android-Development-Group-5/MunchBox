@@ -7,5 +7,6 @@ data class RecipeModel(
     var recipeDetails: String? = null,
     var recipeImage: String? = "",
     var recipeIngredients: MutableList<IngredientsItem>? = null,
+    var userEmail:String? = null
 
 )

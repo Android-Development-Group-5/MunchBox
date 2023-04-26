@@ -15,6 +15,7 @@ import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;
 import java.io.InputStream
 import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.auth.FirebaseAuth
 
 
 @GlideModule
@@ -34,6 +35,7 @@ class AppGlide: AppGlideModule(){
 
 class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeData>, private val context: Context) : RecyclerView.Adapter<MyViewHolder>() {
     var storageReference = FirebaseStorage.getInstance().getReference()
+    var auth = FirebaseAuth.getInstance().uid
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.recipe_item, parent, false)
@@ -45,7 +47,7 @@ class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeData>, private
         Glide.with(context).load(storageReference.child("$imgPath.png")).into(holder.recipeImage)
 
         holder.recipeName.text = recipeList[position].recipeName
-        holder.userId.text = recipeList[position].userId
+        holder.userEmail.text = recipeList[position].userEmail
         holder.recipeDetails.text = recipeList[position].recipeDetails
     }
 
@@ -56,13 +58,13 @@ class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeData>, private
 
 class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var recipeName: TextView
-    var userId: TextView
+    var userEmail: TextView
     var recipeDetails: TextView
     var recipeImage: ImageView
 
     init {
         recipeName = itemView.findViewById(R.id.recipe_name)
-        userId = itemView.findViewById(R.id.recipe_username)
+        userEmail = itemView.findViewById(R.id.recipe_username)
         recipeDetails = itemView.findViewById(R.id.recipe_description)
         recipeImage = itemView.findViewById(R.id.food_image)
     }

@@ -98,7 +98,7 @@ class AddRecipeFragment : Fragment() {
                 val myRef = database.getReference("Recipes")
 
                 val recipeId = myRef.push().key!!
-                val recipe = RecipeModel(recipeId, user?.uid,recipeName.text.toString(), recipeDetails.text.toString(), "images/$recipeId", ingredients)
+                val recipe = RecipeModel(recipeId, user?.uid,recipeName.text.toString(), recipeDetails.text.toString(), "images/$recipeId", ingredients, user?.email.toString())
                 myRef.child(recipeId).setValue(recipe)
                     .addOnSuccessListener{
                         Toast.makeText(context, "Recipe has been added successfully", Toast.LENGTH_SHORT).show()

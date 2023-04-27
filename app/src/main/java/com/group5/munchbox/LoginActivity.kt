@@ -17,6 +17,7 @@ import com.google.firebase.ktx.Firebase
 class LoginActivity : AppCompatActivity() {
     fun loggedIn() {
         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        finish()
     }
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {

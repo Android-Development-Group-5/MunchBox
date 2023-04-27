@@ -114,10 +114,11 @@
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
-            android:background="#F4F4F4"
             android:textColor="@color/black"
             android:textColorHint="#686868"
-            android:paddingLeft="10dp"/>
+            android:paddingLeft="10dp"
+            android:background="@drawable/rounded_corner"
+            />
 
         <EditText
             android:id="@+id/editTextTextPersonName"
@@ -129,10 +130,10 @@
             android:ems="10"
             android:hint="Username"
             android:inputType="textPersonName"
-            android:background="#F4F4F4"
             android:textColor="@color/black"
             android:textColorHint="#686868"
             android:paddingLeft="10dp"
+            android:background="@drawable/rounded_corner"
             />
 
         <Button

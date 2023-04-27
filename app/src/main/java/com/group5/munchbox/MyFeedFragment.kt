@@ -5,25 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import android.content.ActivityNotFoundException
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.util.Log
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.widget.ContentLoadingProgressBar
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.codepath.asynchttpclient.AsyncHttpClient
-import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import okhttp3.Headers
-import org.json.JSONException
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+
 
 /**
  * A simple [Fragment] subclass.
@@ -31,17 +20,40 @@ import org.json.JSONException
  * create an instance of this fragment.
  */
 class MyFeedFragment : Fragment() {
-    private val userRecipes = mutableListOf<RecipeItem>()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    // private val userRecipes = mutableListOf<RecipeItem>()
+    private lateinit var recipeList: ArrayList<RecipeData>
+    private lateinit var adapter: MyFeedRecipeAdapter
+    private var databaseReference:DatabaseReference? = null
+    private var eventListener:ValueEventListener? = null
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_feed, container, false)
+        val view = inflater.inflate(R.layout.fragment_my_feed, container, false)
+
+        recipeList = ArrayList()
+        adapter = MyFeedRecipeAdapter(recipeList, requireContext())
+        var rvRecipes = view.findViewById<RecyclerView>(R.id.home_recipe_list)
+        rvRecipes.layoutManager = LinearLayoutManager(requireContext())
+        rvRecipes.adapter = adapter
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Recipes")
+
+        eventListener = databaseReference!!.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                recipeList.clear()
+                for(itemSnapshot in snapshot.children){
+                    val recipeClass = itemSnapshot.getValue(RecipeData::class.java)
+                    if(recipeClass != null){
+                        recipeList.add(recipeClass)
+                    }
+                }
+                adapter.notifyDataSetChanged()
+            }
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
+        return view
     }
 
     companion object {

@@ -98,7 +98,7 @@ class AddRecipeFragment : Fragment() {
                 val myRef = database.getReference("Recipes")
 
                 val recipeId = myRef.push().key!!
-                val recipe = RecipeModel(recipeId, user?.uid,recipeName.text.toString(), recipeDetails.text.toString(), "images/$recipeId", ingredients)
+                val recipe = RecipeModel(recipeId, user?.uid,recipeName.text.toString(), recipeDetails.text.toString(), "images/$recipeId", ingredients, user?.email.toString(), )
                 myRef.child(recipeId).setValue(recipe)
                     .addOnSuccessListener{
                         Toast.makeText(context, "Recipe has been added successfully", Toast.LENGTH_SHORT).show()
@@ -106,10 +106,10 @@ class AddRecipeFragment : Fragment() {
                 val storageRef = FirebaseStorage.getInstance().getReference("images/$recipeId.png")
                 storageRef.putFile(image_path.toUri())
                 // clear the form after submitting
-                //recipeName.setText("")
-                //recipeDetails.setText("")
-                //ingredients.clear()
-                //recipeImage.setImageResource(0)
+                recipeName.setText("")
+                recipeDetails.setText("")
+                ingredients.clear()
+                recipeImage.setImageResource(R.drawable.add_image)
             }else{
                 Toast.makeText(context, "All fields are required",Toast.LENGTH_SHORT).show()
             }

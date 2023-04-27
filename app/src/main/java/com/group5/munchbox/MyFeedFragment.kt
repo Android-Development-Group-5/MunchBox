@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.*
-import com.group5.munchbox.databinding.FragmentMyFeedBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 /**
@@ -21,8 +24,8 @@ class MyFeedFragment : Fragment() {
     // private val userRecipes = mutableListOf<RecipeItem>()
     private lateinit var recipeList: ArrayList<RecipeData>
     private lateinit var adapter: MyFeedRecipeAdapter
-    var databaseReference:DatabaseReference? = null
-    var eventListener:ValueEventListener? = null
+    private var databaseReference:DatabaseReference? = null
+    private var eventListener:ValueEventListener? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment

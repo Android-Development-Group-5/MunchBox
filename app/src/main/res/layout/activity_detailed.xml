@@ -35,8 +35,8 @@
         android:layout_marginHorizontal="15dp"
         android:layout_marginVertical="15dp"
         app:cardCornerRadius="20dp"
-        android:backgroundTint="@color/white"
-        >
+        android:backgroundTint="@color/white">
+
         <ImageView
             android:id="@+id/detailed_recipe_image"
             android:layout_width="match_parent"
@@ -47,7 +47,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:scaleType="centerCrop"/>
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -89,17 +88,18 @@
                     tools:layout_editor_absoluteX="15dp"
                     tools:text="\@username" />
 
-                <TextView
-                    android:id="@+id/detailed_recipe_description"
-                    style="@style/TextAppearance.Material3.BodyMedium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="15dp"
-                    android:textColor="#282e4a"
-                    app:layout_constraintTop_toBottomOf="@+id/detailed_recipe_username"
-                    tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et ipsum mollis libero tincidunt mattis. Donec interdum tortor in ipsum euismod malesuada. Interdum et malesuada fames" />
+            <TextView
+                android:id="@+id/detailed_recipe_description"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:textColor="#282e4a"
+                app:layout_constraintTop_toBottomOf="@+id/detailed_recipe_username"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et ipsum mollis libero tincidunt mattis. Donec interdum tortor in ipsum euismod malesuada. Interdum et malesuada fames"
+                />
 
-                <TextView
+            <TextView
                     android:id="@+id/ingredients"
                     style="@style/TextAppearance.Material3.BodyLarge"
                     android:layout_width="match_parent"
@@ -108,7 +108,8 @@
                     android:text="@string/ingredients"
                     android:textStyle="bold"
                     app:layout_constraintTop_toBottomOf="@+id/detailed_recipe_description"
-                    tools:layout_editor_absoluteX="15dp" />
+                    tools:layout_editor_absoluteX="15dp"
+                    android:textColor="#282C3C"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
@@ -126,17 +127,19 @@
                     android:text="@string/instructions"
                     android:textStyle="bold"
                     app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-                    tools:layout_editor_absoluteX="15dp" />
+                    tools:layout_editor_absoluteX="15dp"
+                    android:textColor="#282C3C"/>
 
                 <TextView
                     android:id="@+id/detailed_recipe_instructions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="15dp"
-                    android:layout_marginBottom="80dp"
+                    android:layout_marginBottom="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/instructions"
-                    tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et ipsum mollis libero tincidunt mattis. Donec interdum tortor in ipsum euismod malesuada. Interdum et malesuada fames" />
+                    tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et ipsum mollis libero tincidunt mattis. Donec interdum tortor in ipsum euismod malesuada. Interdum et malesuada fames"
+                    android:textColor="#282e4a"/>
 
         </LinearLayout>
             <androidx.constraintlayout.widget.Group
@@ -149,6 +152,7 @@
     </ScrollView>
 
         <include layout="@layout/recipe_stats"
+            android:id="@+id/postInteraction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="665dp" />

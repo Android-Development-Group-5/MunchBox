@@ -29,7 +29,8 @@ private const val TAG = "DiscoverFeedFragment/"
 private const val NUM_RECIPES = 10
 private const val RECIPE_SEARCH_URL = "https://www.themealdb.com/api/json/v1/1/random.php"
 // private const val API_KEY = "1"
-const val RECIPE_EXTRA = "RECIPE_EXTRA"
+const val RECIPE_EXTRA = "API_RECIPE"
+const val SOURCE = "DiscoverFeedFragment"
 
 /**
  * A simple [Fragment] subclass.
@@ -37,7 +38,7 @@ const val RECIPE_EXTRA = "RECIPE_EXTRA"
  * create an instance of this fragment.
  */
 class DiscoverFeedFragment : Fragment() /*, OnListFragmentInteractionListener*/ {
-    private val recipes = mutableListOf<RecipeItem>()
+    private val recipes: MutableList<RecipeItem> = mutableListOf()
 //    private lateinit var recipeRecyclerView: RecyclerView
 //    private lateinit var application: Application
 
@@ -149,7 +150,7 @@ class DiscoverFeedFragment : Fragment() /*, OnListFragmentInteractionListener*/ 
 
             Glide.with(holder.itemView)
                 .load(recipe.strMealThumb)
-                .transform(CenterCrop(), RoundedCorners(16))
+                .transform(CenterCrop(), RoundedCorners(32))
                 .into(holder.recipeThumbnail)
 
             holder.recipeSource.setOnClickListener {
@@ -179,9 +180,12 @@ class DiscoverFeedFragment : Fragment() /*, OnListFragmentInteractionListener*/ 
                 val gson = Gson()
                 val myJson = gson.toJson(recipe)
 
+                Log.d("discover recipe", myJson)
+
                 // Navigate to Details screen and pass selected recipe
                 val intent = Intent(context, DetailedActivity::class.java)
                 intent.putExtra(RECIPE_EXTRA, myJson)
+                intent.putExtra(SOURCE, SOURCE)
                 context.startActivity(intent)
             }
         }

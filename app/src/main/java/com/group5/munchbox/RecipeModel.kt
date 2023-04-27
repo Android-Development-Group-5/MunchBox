@@ -4,7 +4,7 @@ data class Comment(
     var user:String? = null,
     var message:String? = null,
 
-    );
+    )
 data class RecipeModel(
     var recipeId: String? = null,
     var userId: String? = null,

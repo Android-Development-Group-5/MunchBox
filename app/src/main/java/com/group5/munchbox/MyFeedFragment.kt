@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener
 class MyFeedFragment : Fragment() {
 
     // private val userRecipes = mutableListOf<RecipeItem>()
-    private lateinit var recipeList: ArrayList<RecipeData>
+    private lateinit var recipeList: ArrayList<RecipeModel>
     private lateinit var adapter: MyFeedRecipeAdapter
     private var databaseReference:DatabaseReference? = null
     private var eventListener:ValueEventListener? = null
@@ -43,7 +43,7 @@ class MyFeedFragment : Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 recipeList.clear()
                 for(itemSnapshot in snapshot.children){
-                    val recipeClass = itemSnapshot.getValue(RecipeData::class.java)
+                    val recipeClass = itemSnapshot.getValue(RecipeModel::class.java)
                     if(recipeClass != null){
                         recipeList.add(recipeClass)
                     }

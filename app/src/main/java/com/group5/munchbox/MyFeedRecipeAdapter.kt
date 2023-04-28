@@ -33,7 +33,7 @@ class AppGlide: AppGlideModule(){
     }
 }
 
-class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeData>, private val context: Context) : RecyclerView.Adapter<MyViewHolder>() {
+class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeModel>, private val context: Context) : RecyclerView.Adapter<MyViewHolder>() {
     var storageReference = FirebaseStorage.getInstance().getReference()
     var auth = FirebaseAuth.getInstance().uid
 

@@ -112,6 +112,10 @@
                     android:textColor="#282C3C"/>
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:scrollbars="vertical"
+                    android:scrollbarSize="10dp"
+                    android:scrollbarThumbVertical="@drawable/scrollbar_bgd"
+                    android:fadeScrollbars="false"
                     android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

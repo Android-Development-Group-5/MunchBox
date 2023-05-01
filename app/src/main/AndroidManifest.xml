@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.group5.munchbox">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,8 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MunchBox"
         tools:targetApi="31">
+        <activity android:name=".MyFeedDetailedActivity"
+            android:exported="false"/>
+        <activity android:name=".DetailedActivity"
+            android:exported="false" />
         <activity
-            android:name="com.group5.munchbox.MainActivity"
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

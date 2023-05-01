@@ -10,6 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+
+        // added the following
+        maven { url "https://jitpack.io" }
     }
 }
 rootProject.name = "MunchBox"

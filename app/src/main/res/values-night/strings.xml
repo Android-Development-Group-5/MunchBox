@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ingredients">Ingredients:</string>
+    <string name="food_description">food description</string>
+    <string name="instructions">Instructions</string>
+    <string name="tab_navigation">Tab Navigation</string>
+    <string name="picture_of_recipe">Picture of Recipe</string>
+    <string name="checkmark_in_a_circle">Checkmark in a circle</string>
+</resources>

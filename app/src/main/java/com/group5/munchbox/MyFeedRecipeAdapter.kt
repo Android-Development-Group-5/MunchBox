@@ -2,6 +2,8 @@ package com.group5.munchbox
 
 import android.content.Context
 import android.graphics.Color
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +23,7 @@ import com.firebase.ui.storage.images.FirebaseImageLoader
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
 
 
 @GlideModule
@@ -38,9 +41,8 @@ class AppGlide: AppGlideModule(){
     }
 }
 
-class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeModel>, private val context: Context) : RecyclerView.Adapter<MyViewHolder>() {
+class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeModel>, private val context: Context) : RecyclerView.Adapter<MyFeedRecipeAdapter.MyViewHolder>() {
     var storageReference = FirebaseStorage.getInstance().getReference()
-    var auth = FirebaseAuth.getInstance().uid
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.recipe_item, parent, false)
@@ -164,34 +166,48 @@ class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeModel>, privat
 
         }
 
-
     }
 
     override fun getItemCount(): Int {
         return recipeList.size
     }
-}
 
-class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    var recipeName: TextView
-    var userEmail: TextView
-    var recipeDetails: TextView
-    var recipeImage: ImageView
-    var upvoteCount: TextView
-    var downvoteCount: TextView
-    var commentCount: TextView
-    var upvote: ImageView
-    var downvote: ImageView
 
-    init {
-        recipeName = itemView.findViewById(R.id.recipe_name)
-        userEmail = itemView.findViewById(R.id.recipe_username)
-        recipeDetails = itemView.findViewById(R.id.recipe_description)
-        recipeImage = itemView.findViewById(R.id.food_image)
-        upvote = itemView.findViewById(R.id.upvote)
-        downvote = itemView.findViewById(R.id.downvote)
-        upvoteCount = itemView.findViewById(R.id.upvoteCount)
-        downvoteCount = itemView.findViewById(R.id.downvoteCount)
-        commentCount = itemView.findViewById(R.id.commentCount)
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+        var recipeName: TextView
+        var userEmail: TextView
+        var recipeDetails: TextView
+        var recipeImage: ImageView
+        var upvoteCount: TextView
+        var downvoteCount: TextView
+        var commentCount: TextView
+        var upvote: ImageView
+        var downvote: ImageView
+
+        init {
+            recipeName = itemView.findViewById(R.id.recipe_name)
+            userEmail = itemView.findViewById(R.id.recipe_username)
+            recipeDetails = itemView.findViewById(R.id.recipe_description)
+            recipeImage = itemView.findViewById(R.id.food_image)
+            upvote = itemView.findViewById(R.id.upvote)
+            downvote = itemView.findViewById(R.id.downvote)
+            upvoteCount = itemView.findViewById(R.id.upvoteCount)
+            downvoteCount = itemView.findViewById(R.id.downvoteCount)
+            commentCount = itemView.findViewById(R.id.commentCount)
+
+            itemView.setOnClickListener(this)
+        }
+        override fun onClick(v: View?) {
+            // Navigate to Details screen and pass selected recipeIndex
+            val intent = Intent(context, MyFeedDetailedActivity::class.java)
+            val gson = Gson()
+            val myJson = gson.toJson(recipeList[adapterPosition])
+            intent.putExtra("my_recipe_extra", myJson)
+
+            context.startActivity(intent)
+        }
     }
+
+
 }
+

@@ -79,7 +79,7 @@
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="#F4F4F4"
+            android:background="@drawable/rounded_corner"
             android:textColor="@color/black"
             android:textColorHint="#686868"
             android:paddingLeft="10dp"
@@ -96,7 +96,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/RecipeName"
-            android:background="#F4F4F4"
+            android:background="@drawable/rounded_corner"
             android:textColor="@color/black"
             android:textColorHint="#686868"
             android:paddingLeft="10dp"
@@ -142,16 +142,35 @@
             app:layout_constraintEnd_toEndOf="@+id/IngredientsList"
             app:layout_constraintTop_toBottomOf="@+id/IngredientsList" />
 
+        <EditText
+            android:id="@+id/RecipeInstructions"
+            android:layout_width="350dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="25dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:hint="Recipe Instructions"
+            app:layout_constraintTop_toBottomOf="@id/AddIngredientButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/rounded_corner"
+            android:textColor="@color/black"
+            android:textColorHint="#686868"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:gravity="top"
+            />
+
         <ImageView
             android:id="@+id/RecipeImage"
             android:layout_width="350dp"
             android:layout_height="220dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:src="@drawable/add_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AddIngredientButton"
+            app:layout_constraintTop_toBottomOf="@+id/RecipeInstructions"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

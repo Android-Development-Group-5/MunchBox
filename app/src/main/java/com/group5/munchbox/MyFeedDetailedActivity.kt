@@ -38,6 +38,7 @@ class MyFeedDetailedActivity: AppCompatActivity() {
         recipeName.text = recipe.recipeName
         recipeUsername.text = recipe.userEmail
         recipeDescription.text = recipe.recipeDetails
+        recipeInstruction.text = recipe.recipeInstructions
         detailedActivityRecyclerView.adapter = RecyclerViewAdapter(recipeIngredientsList)
 
         val imgPath = recipe.recipeImage

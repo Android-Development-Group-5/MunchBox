@@ -97,6 +97,7 @@ class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeModel>, privat
             val recipeName = recipeList[position].recipeName
             val recipeDetails = recipeList[position].recipeDetails
             val recipeImage = recipeList[position].recipeImage
+            val recipeInstructions = recipeList[position].recipeInstructions
             val recipeIngredients = recipeList[position].recipeIngredients
             val userEmail = recipeList[position].userEmail
             var upvoters1: MutableList<String>? = mutableListOf<String>()
@@ -117,7 +118,7 @@ class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeModel>, privat
             }
             val downvotes = downvoters1
             val comments = recipeList[position].comments
-            val recipe = RecipeModel(recipeId, ruserID, recipeName, recipeDetails, recipeImage, recipeIngredients, userEmail, upvotes, downvotes, comments)
+            val recipe = RecipeModel(recipeId, ruserID, recipeName, recipeDetails, recipeImage, recipeInstructions, recipeIngredients, userEmail, upvotes, downvotes, comments)
             myRef.child(recipeId).setValue(recipe)
                 .addOnSuccessListener{
                     holder.upvote.setColorFilter(Color.rgb(0, 255, 0))
@@ -137,6 +138,7 @@ class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeModel>, privat
             val recipeName = recipeList[position].recipeName
             val recipeDetails = recipeList[position].recipeDetails
             val recipeImage = recipeList[position].recipeImage
+            val recipeInstructions = recipeList[position].recipeInstructions
             val recipeIngredients = recipeList[position].recipeIngredients
             val userEmail = recipeList[position].userEmail
             var upvoters2: MutableList<String>? = mutableListOf<String>()
@@ -157,7 +159,7 @@ class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeModel>, privat
             }
             val downvotes = downvoters2
             val comments = recipeList[position].comments
-            val recipe = RecipeModel(recipeId, ruserID, recipeName, recipeDetails, recipeImage, recipeIngredients, userEmail, upvotes, downvotes, comments)
+            val recipe = RecipeModel(recipeId, ruserID, recipeName, recipeDetails, recipeImage, recipeInstructions, recipeIngredients, userEmail, upvotes, downvotes, comments)
             myRef.child(recipeId).setValue(recipe)
                 .addOnSuccessListener{
                     holder.downvote.setColorFilter(Color.rgb(0, 0, 255))

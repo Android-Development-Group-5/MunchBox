@@ -84,6 +84,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
+                    android:textColor="#7C7C7C"
                     app:layout_constraintTop_toBottomOf="@+id/detailed_recipe_name"
                     tools:layout_editor_absoluteX="15dp"
                     tools:text="\@username" />

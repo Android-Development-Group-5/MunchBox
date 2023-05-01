@@ -65,6 +65,7 @@ class DetailedActivity : AppCompatActivity() {
             detailedActivityRecyclerView.adapter = RecyclerViewAdapter(ingredients)
 
             recipeDescription.text = null
+            recipeDescription.visibility = GONE
             postInteraction.visibility = GONE
             recipeUsername.text = "TheMealDB"
         }

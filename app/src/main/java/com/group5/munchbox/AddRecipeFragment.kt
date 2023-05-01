@@ -45,6 +45,7 @@ class AddRecipeFragment : Fragment() {
 
     private lateinit var recipeName : EditText
     private lateinit var recipeDetails : EditText
+    private lateinit var recipeInstructions: EditText
 
     private lateinit var addRecipeButton : Button
     private lateinit var addIngredientButton: Button
@@ -80,11 +81,12 @@ class AddRecipeFragment : Fragment() {
 
         recipeName = view.findViewById(R.id.RecipeName)
         recipeDetails = view.findViewById(R.id.RecipeDetails)
+        recipeInstructions = view.findViewById(R.id.RecipeInstructions)
 
         recipeImage = view.findViewById(R.id.RecipeImage)
 
         fun validateForm(): Boolean {
-           if(recipeName.text.isEmpty() || recipeDetails.text.isEmpty() || ingredients.isEmpty()){
+           if(recipeName.text.isEmpty() || recipeDetails.text.isEmpty() || recipeInstructions.text.isEmpty() || ingredients.isEmpty()){
                return false
            }
             return true
@@ -98,7 +100,7 @@ class AddRecipeFragment : Fragment() {
                 val myRef = database.getReference("Recipes")
 
                 val recipeId = myRef.push().key!!
-                val recipe = RecipeModel(recipeId, user?.uid,recipeName.text.toString(), recipeDetails.text.toString(), "images/$recipeId", ingredients, user?.email.toString(), )
+                val recipe = RecipeModel(recipeId, user?.uid,recipeName.text.toString(), recipeDetails.text.toString(), "images/$recipeId", recipeInstructions.text.toString(), ingredients, user?.email.toString(), )
                 myRef.child(recipeId).setValue(recipe)
                     .addOnSuccessListener{
                         Toast.makeText(context, "Recipe has been added successfully", Toast.LENGTH_SHORT).show()
@@ -108,6 +110,7 @@ class AddRecipeFragment : Fragment() {
                 // clear the form after submitting
                 recipeName.setText("")
                 recipeDetails.setText("")
+                recipeInstructions.setText("")
                 ingredients.clear()
                 recipeImage.setImageResource(R.drawable.add_image)
             }else{

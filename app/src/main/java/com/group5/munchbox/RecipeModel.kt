@@ -11,6 +11,7 @@ data class RecipeModel(
     var recipeName: String? = null,
     var recipeDetails: String? = null,
     var recipeImage: String? = "",
+    var recipeInstructions: String? = "",
     var recipeIngredients: MutableList<IngredientsItem>? = null,
     var userEmail:String? = null,
     var upvotes:MutableList<String>? = null,

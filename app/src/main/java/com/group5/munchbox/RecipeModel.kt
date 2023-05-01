@@ -13,8 +13,8 @@ data class RecipeModel(
     var recipeImage: String? = "",
     var recipeIngredients: MutableList<IngredientsItem>? = null,
     var userEmail:String? = null,
-    var upvotes:Int = 0,
-    var dowmvotes:Int = 0,
+    var upvotes:MutableList<String>? = null,
+    var downvotes:MutableList<String>? = null,
     var comments:MutableList<Comment>? = null
 
 )

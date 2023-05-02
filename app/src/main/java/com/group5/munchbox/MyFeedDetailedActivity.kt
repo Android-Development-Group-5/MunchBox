@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -42,6 +43,7 @@ class MyFeedDetailedActivity: AppCompatActivity() {
         val detailedActivityRecyclerView: RecyclerView = findViewById(R.id.recyclerView)
         val recipeInstruction: TextView = findViewById(R.id.detailed_recipe_instructions)
         val postInteraction = findViewById<View>(R.id.postInteraction)
+        val externalLinkButton = findViewById<ImageButton>(R.id.externalLinkBtn)
         var upvoteCount: TextView = findViewById(R.id.upvoteCount)
         var downvoteCount: TextView = findViewById(R.id.downvoteCount)
         var commentCount: TextView = findViewById(R.id.commentCount)
@@ -50,6 +52,7 @@ class MyFeedDetailedActivity: AppCompatActivity() {
 
         detailedActivityRecyclerView.layoutManager = LinearLayoutManager(this)
 
+        externalLinkButton.visibility = View.GONE
         recipeName.text = recipe.recipeName
         recipeUsername.text = recipe.userEmail
         recipeDescription.text = recipe.recipeDetails

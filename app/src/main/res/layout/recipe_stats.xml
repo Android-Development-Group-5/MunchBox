@@ -16,64 +16,78 @@
         app:layout_constraintEnd_toEndOf="parent"
         >
 
+        <LinearLayout
+            android:id="@+id/upvoteLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/upvote"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:src="@drawable/up_arrow"
-            android:layout_marginHorizontal="5dp"
-            android:layout_marginVertical="17dp"
+            <ImageView
+                android:id="@+id/upvote"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="17dp"
+                android:src="@drawable/up_arrow"
 
-            />
-        <TextView
-            android:id="@+id/upvoteCount"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:text="890"
-            android:textSize="17sp"
-            android:layout_marginRight="45dp"
-            android:layout_marginVertical="13dp"
-            android:textColor="#5E667A"
-            />
+                />
 
+            <TextView
+                android:id="@+id/upvoteCount"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="13dp"
+                android:layout_marginRight="45dp"
+                android:text="890"
+                android:textColor="#5E667A"
+                android:textSize="17sp" />
+        </LinearLayout>
 
-        <ImageView
-            android:id="@+id/downvote"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginHorizontal="5dp"
-            android:layout_marginVertical="17dp"
-            android:src="@drawable/down_arrow"
-            />
-        <TextView
-            android:id="@+id/downvoteCount"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:text="15"
-            android:textSize="17sp"
-            android:layout_marginRight="45dp"
-            android:layout_marginVertical="14dp"
-            android:textColor="#5E667A"
-            />
+        <LinearLayout
+            android:id="@+id/downvoteLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/downvote"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="17dp"
+                android:src="@drawable/down_arrow"
+                />
+            <TextView
+                android:id="@+id/downvoteCount"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="15"
+                android:textSize="17sp"
+                android:layout_marginRight="45dp"
+                android:layout_marginVertical="13dp"
+                android:textColor="#5E667A"
+                />
+        </LinearLayout>
 
-        <ImageView
-            android:id="@+id/comment"
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:src="@drawable/comments"
-            android:layout_marginHorizontal="5dp"
-            android:layout_marginVertical="14dp"
-            />
-        <TextView
-            android:id="@+id/commentCount"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:text="200"
-            android:textSize="17sp"
-            android:layout_marginVertical="14dp"
-            android:textColor="#5E667A"
-            />
+        <LinearLayout
+            android:id="@+id/commentsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/comment"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:src="@drawable/comments"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="14dp"
+                />
+            <TextView
+                android:id="@+id/commentCount"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="200"
+                android:textSize="17sp"
+                android:layout_marginVertical="13dp"
+                android:textColor="#5E667A"
+                />
+        </LinearLayout>
 
     </LinearLayout>
 

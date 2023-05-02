@@ -17,6 +17,7 @@ import android.graphics.Color
 import android.content.Intent
 import android.util.Log
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.net.toUri
@@ -143,7 +144,7 @@ class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeModel>, privat
                 holder.downvote.setColorFilter(Color.rgb(0, 0, 255))
             }
         }
-        holder.upvote.setOnClickListener {
+        holder.upvoteLayout.setOnClickListener {
             val database = Firebase.database
             val myRef = database.getReference("Recipes")
 
@@ -184,7 +185,7 @@ class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeModel>, privat
                 }
 
         }
-        holder.downvote.setOnClickListener {
+        holder.downvoteLayout.setOnClickListener {
             val database = Firebase.database
             val myRef = database.getReference("Recipes")
 
@@ -243,6 +244,9 @@ class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeModel>, privat
         var commentCount: TextView
         var upvote: ImageView
         var downvote: ImageView
+        var upvoteLayout: LinearLayout
+        var downvoteLayout: LinearLayout
+        var commentsLayout: LinearLayout
 
         init {
             recipeName = itemView.findViewById(R.id.recipe_name)
@@ -254,6 +258,9 @@ class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeModel>, privat
             upvoteCount = itemView.findViewById(R.id.upvoteCount)
             downvoteCount = itemView.findViewById(R.id.downvoteCount)
             commentCount = itemView.findViewById(R.id.commentCount)
+            upvoteLayout = itemView.findViewById(R.id.upvoteLayout)
+            downvoteLayout = itemView.findViewById(R.id.downvoteLayout)
+            commentsLayout = itemView.findViewById(R.id.commentsLayout)
 
             itemView.setOnClickListener(this)
         }

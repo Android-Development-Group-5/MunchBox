@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -49,6 +50,9 @@ class MyFeedDetailedActivity: AppCompatActivity() {
         var commentCount: TextView = findViewById(R.id.commentCount)
         var upvote: ImageView = findViewById(R.id.upvote)
         var downvote: ImageView = findViewById(R.id.downvote)
+        var upvoteLayout: LinearLayout = findViewById(R.id.upvoteLayout)
+        var downvoteLayout: LinearLayout = findViewById(R.id.downvoteLayout)
+        var commentsLayout: LinearLayout = findViewById(R.id.commentsLayout)
 
         detailedActivityRecyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -91,7 +95,7 @@ class MyFeedDetailedActivity: AppCompatActivity() {
                 downvote.setColorFilter(Color.rgb(0, 0, 255))
             }
         }
-        upvote.setOnClickListener {
+        upvoteLayout.setOnClickListener {
             val database = Firebase.database
             val myRef = database.getReference("Recipes")
 
@@ -134,7 +138,7 @@ class MyFeedDetailedActivity: AppCompatActivity() {
                 }
 
         }
-        downvote.setOnClickListener {
+        downvoteLayout.setOnClickListener {
             val database = Firebase.database
             val myRef = database.getReference("Recipes")
 

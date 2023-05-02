@@ -187,8 +187,7 @@
             android:id="@+id/postInteraction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="665dp" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginTop="655dp" />
 
     </androidx.cardview.widget.CardView>
 

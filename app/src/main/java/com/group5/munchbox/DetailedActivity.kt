@@ -1,10 +1,16 @@
 package com.group5.munchbox
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -34,6 +40,7 @@ class DetailedActivity : AppCompatActivity() {
         val detailedActivityRecyclerView: RecyclerView = findViewById(R.id.recyclerView)
         val recipeInstruction: TextView = findViewById(R.id.detailed_recipe_instructions)
         val postInteraction = findViewById<View>(R.id.postInteraction)
+        val externalLinkButton = findViewById<ImageButton>(R.id.externalLinkBtn)
 
         detailedActivityRecyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -65,6 +72,7 @@ class DetailedActivity : AppCompatActivity() {
             detailedActivityRecyclerView.adapter = RecyclerViewAdapter(ingredients)
 
             recipeDescription.text = null
+            recipeDescription.visibility = GONE
             postInteraction.visibility = GONE
             recipeUsername.text = "TheMealDB"
         }
@@ -76,6 +84,15 @@ class DetailedActivity : AppCompatActivity() {
             .load(recipe.strMealThumb)
             .transform(CenterCrop())
             .into(recipeImageView)
+
+        externalLinkButton.setOnClickListener {
+            try {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(recipe.strSource.toString()))
+                startActivity(browserIntent, null)
+            } catch (e: ActivityNotFoundException) {
+                Log.e("Source Url:", recipe.strSource.toString())
+            }
+        }
     }
 
     private inner class RecyclerViewAdapter(

@@ -208,14 +208,6 @@ class MyFeedRecipeAdapter(private val recipeList: ArrayList<RecipeModel>, privat
                             holder.upvote.setColorFilter(Color.rgb(0, 0, 0))
                         }
                 }
-            holder.commentsLayout.setOnClickListener{
-                // Navigate to Details screen and pass selected recipe
-                val intent = Intent(context, CommentSectionActivity::class.java)
-                val gson = Gson()
-                val myJson = gson.toJson(recipeList[position])
-                intent.putExtra("my_feed_recipe_extra", myJson)
-                context.startActivity(intent)
-            }
             }
             override fun getItemCount(): Int {
                 return recipeList.size

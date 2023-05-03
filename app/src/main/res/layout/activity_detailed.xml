@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="@color/black">
+
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="fill_parent"
@@ -19,6 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/backdrop" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/view2"
         android:layout_width="match_parent"
@@ -32,6 +36,7 @@
         android:layout_marginVertical="15dp"
         app:cardCornerRadius="20dp"
         android:backgroundTint="@color/white">
+
         <ImageView
             android:id="@+id/detailed_recipe_image"
             android:layout_width="match_parent"
@@ -42,134 +47,152 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:scaleType="centerCrop"/>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <ScrollView
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/postInteraction">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/postInteraction">
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
                     android:orientation="vertical">
+
                     <TextView
+                        android:id="@+id/detailed_recipe_name"
+                        style="@style/TextAppearance.Material3.HeadlineLarge"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp" />
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_margin="15dp"
+                        android:textStyle="bold"
+                        android:textColor="#25265E"
+                        app:layout_constraintBottom_toTopOf="@id/detailed_recipe_username"
+                        tools:text="Shrimp Scampi" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#FFFFFF"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
+
                         <TextView
-                            android:id="@+id/detailed_recipe_name"
-                            style="@style/TextAppearance.Material3.HeadlineLarge"
-                            android:layout_width="match_parent"
+                            android:id="@+id/detailed_recipe_username"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
                             android:layout_margin="15dp"
-                            android:textStyle="bold"
-                            android:textColor="#25265E"
-                            app:layout_constraintBottom_toTopOf="@id/detailed_recipe_username"
-                            tools:text="Shrimp Scampi" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/detailed_recipe_username"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="15dp"
-                                android:textColor="#7C7C7C"
-                                app:layout_constraintTop_toBottomOf="@+id/detailed_recipe_name"
-                                tools:layout_editor_absoluteX="15dp"
-                                tools:text="\@username"
-                                android:gravity="center"/>
-
-                            <ImageButton
-                                android:id="@+id/externalLinkBtn"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:background="@drawable/external_link"
-                                android:layout_gravity="center"/>
-                        </LinearLayout>
-
-                        <TextView
-                            android:id="@+id/detailed_recipe_description"
-                            style="@style/TextAppearance.Material3.BodyMedium"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="15dp"
-                            android:textColor="#282e4a"
-                            app:layout_constraintTop_toBottomOf="@+id/detailed_recipe_username"
-                            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et ipsum mollis libero tincidunt mattis. Donec interdum tortor in ipsum euismod malesuada. Interdum et malesuada fames"
-                            />
-                        <TextView
-                            android:id="@+id/ingredients"
-                            style="@style/TextAppearance.Material3.BodyLarge"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginRight="15dp"
-                            android:layout_marginBottom="15dp"
-                            android:text="@string/ingredients"
-                            android:textStyle="bold"
-                            app:layout_constraintTop_toBottomOf="@+id/detailed_recipe_description"
+                            android:textColor="#7C7C7C"
+                            app:layout_constraintTop_toBottomOf="@+id/detailed_recipe_name"
                             tools:layout_editor_absoluteX="15dp"
-                            android:textColor="#282C3C"/>
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:scrollbars="vertical"
-                            android:scrollbarSize="10dp"
-                            android:scrollbarThumbVertical="@drawable/scrollbar_bgd"
-                            android:fadeScrollbars="false"
-                            android:id="@+id/recyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintTop_toBottomOf="@+id/ingredients"
-                            tools:listitem="@layout/detailed_recipe_ingredients_item" />
-                        <TextView
-                            android:id="@+id/instructions"
-                            style="@style/TextAppearance.Material3.BodyLarge"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginRight="15dp"
-                            android:layout_marginBottom="15dp"
-                            android:text="@string/instructions"
-                            android:textStyle="bold"
-                            app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-                            tools:layout_editor_absoluteX="15dp"
-                            android:textColor="#282C3C"/>
-                        <TextView
-                            android:id="@+id/detailed_recipe_instructions"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="15dp"
-                            android:layout_marginBottom="50dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/instructions"
-                            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et ipsum mollis libero tincidunt mattis. Donec interdum tortor in ipsum euismod malesuada. Interdum et malesuada fames"
-                            android:textColor="#282e4a"/>
+                            tools:text="\@username"
+                            android:gravity="center"/>
+
+                        <ImageButton
+                            android:id="@+id/externalLinkBtn"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/external_link"
+                            android:layout_gravity="center"/>
                     </LinearLayout>
-                    <androidx.constraintlayout.widget.Group
-                        android:id="@+id/group"
-                        android:layout_width="wrap_content"
+
+                    <TextView
+                        android:id="@+id/detailed_recipe_description"
+                        style="@style/TextAppearance.Material3.BodyMedium"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:constraint_referenced_ids="detailed_recipe_username,detailed_recipe_description,ingredients,recyclerView,instructions,detailed_recipe_instructions" />
+                        android:layout_marginHorizontal="15dp"
+                        android:textColor="#282e4a"
+                        app:layout_constraintTop_toBottomOf="@+id/detailed_recipe_username"
+                        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et ipsum mollis libero tincidunt mattis. Donec interdum tortor in ipsum euismod malesuada. Interdum et malesuada fames"
+                        />
+
+                    <TextView
+                        android:id="@+id/ingredients"
+                        style="@style/TextAppearance.Material3.BodyLarge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:text="@string/ingredients"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toBottomOf="@+id/detailed_recipe_description"
+                        tools:layout_editor_absoluteX="15dp"
+                        android:textColor="#282C3C"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:scrollbars="vertical"
+                        android:scrollbarSize="10dp"
+                        android:scrollbarThumbVertical="@drawable/scrollbar_bgd"
+                        android:fadeScrollbars="false"
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/ingredients"
+                        tools:listitem="@layout/detailed_recipe_ingredients_item" />
+
+                    <TextView
+                        android:id="@+id/instructions"
+                        style="@style/TextAppearance.Material3.BodyLarge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:text="@string/instructions"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+                        tools:layout_editor_absoluteX="15dp"
+                        android:textColor="#282C3C"/>
+
+                    <TextView
+                        android:id="@+id/detailed_recipe_instructions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginBottom="50dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/instructions"
+                        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et ipsum mollis libero tincidunt mattis. Donec interdum tortor in ipsum euismod malesuada. Interdum et malesuada fames"
+                        android:textColor="#282e4a"/>
+
                 </LinearLayout>
-            </ScrollView>
-            <include layout="@layout/recipe_stats"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:id="@+id/postInteraction"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="665dp" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:constraint_referenced_ids="detailed_recipe_username,detailed_recipe_description,ingredients,recyclerView,instructions,detailed_recipe_instructions" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <include layout="@layout/recipe_stats"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/postInteraction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="655dp" />
+
     </androidx.cardview.widget.CardView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

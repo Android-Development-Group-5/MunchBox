@@ -37,14 +37,13 @@
         android:id="@+id/view2"
         android:layout_width="332dp"
         android:layout_height="320dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="20dp"
-        android:backgroundTint="@color/white"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView"
@@ -70,13 +69,25 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="120dp"
             android:layout_marginTop="230dp"
-            android:text="Logout"
-            app:cornerRadius="16dp"
             android:backgroundTint="#06977F"
+            android:text="Logout"
             android:textColor="@color/white"
-            />
+            app:cornerRadius="16dp" />
 
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/discoveriesButton"
+        android:layout_width="332dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#060929"
+        android:text="Discoveries"
+        android:textColor="@color/white"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

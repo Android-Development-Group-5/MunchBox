@@ -18,6 +18,9 @@
         android:theme="@style/Theme.MunchBox"
         tools:targetApi="31">
         <activity
+            android:name=".CommentSectionActivity"
+            android:exported="false" />
+        <activity
             android:name=".DiscoveriesActivity"
             android:exported="false" />
         <activity

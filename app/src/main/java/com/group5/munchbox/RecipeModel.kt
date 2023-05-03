@@ -1,7 +1,7 @@
 package com.group5.munchbox
 
 data class Comment(
-    var userEmail:String? = null,
+    var userId:String? = null,
     var message:String? = null,
 
     )

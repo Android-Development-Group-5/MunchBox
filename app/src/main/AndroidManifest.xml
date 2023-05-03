@@ -21,6 +21,9 @@
             android:name=".CommentSectionActivity"
             android:exported="false" />
         <activity
+            android:name=".DiscoveriesActivity"
+            android:exported="false" />
+        <activity
             android:name=".MyFeedDetailedActivity"
             android:exported="false" />
         <activity

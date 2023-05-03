@@ -1,4 +1,5 @@
 package com.group5.munchbox
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -127,7 +128,7 @@ class MyFeedDetailedActivity: AppCompatActivity() {
                     }
 
             }
-                downvoteLayout.setOnClickListener {
+            downvoteLayout.setOnClickListener {
                     val database = Firebase.database
                     val myRef = database.getReference("Recipes")
 
@@ -168,6 +169,14 @@ class MyFeedDetailedActivity: AppCompatActivity() {
                             downvoteCount.text = downvotes?.size.toString()
                         }
                 }
+            commentsLayout.setOnClickListener {
+                // Navigate to Details screen and pass selected recipe
+                val intent = Intent(this, CommentSectionActivity::class.java)
+                val gson = Gson()
+                val myJson = gson.toJson(recipe)
+                intent.putExtra("my_feed_recipe_extra", myJson)
+                this.startActivity(intent)
+            }
             }
             private inner class RecyclerViewAdapter(private val ingredients: MutableList<IngredientsItem>?): RecyclerView.Adapter<RecyclerViewAdapter.IngredientViewHolder>() {
                 override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientViewHolder {

@@ -68,12 +68,13 @@ class CommentSectionActivity : AppCompatActivity() {
                 val userEmail = recipe.userEmail
                 val upvotes = recipe.upvotes
                 val downvotes= recipe.downvotes
-                val newComment = Comment(commenterEmail,commentEntry.text.toString())
+                val newComment = Comment(FirebaseAuth.getInstance().currentUser!!.uid, commenterEmail,commentEntry.text.toString())
                 var comments: MutableList<Comment>? = mutableListOf<Comment>()
                 if (recipe.comments != null){
                     comments = recipe.comments?.toMutableList()
                 }
                 comments?.add(newComment)
+                commentsListRecyclerView.adapter?.notifyDataSetChanged()
                 val recipe = RecipeModel(recipeId, ruserID, recipeName, recipeDetails, recipeImage, recipeInstructions, recipeIngredients, userEmail, upvotes, downvotes, comments)
                 myRef.child(recipeId).setValue(recipe)
                     .addOnSuccessListener{

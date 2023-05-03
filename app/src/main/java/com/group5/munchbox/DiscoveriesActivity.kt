@@ -177,8 +177,7 @@ Log.i("string", RECIPE_SEARCH_URL+it.key)
                 val recipe = recipes[adapterPosition]
                 val gson = Gson()
                 val myJson = gson.toJson(recipe)
-
-                Log.d("discover recipe", myJson)
+                Log.d("discovered recipe", myJson)
 
                 // Navigate to Details screen and pass selected recipe
                 val intent = Intent(context, DetailedActivity::class.java)

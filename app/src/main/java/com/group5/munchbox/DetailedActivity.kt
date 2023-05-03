@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
@@ -49,7 +50,9 @@ class DetailedActivity : AppCompatActivity() {
 
         detailedActivityRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        if (source == "DiscoverFeedFragment") {
+        if (source == "DiscoverFeedFragment" || source == "DiscoveriesActivity") {
+            saveButton.visibility = View.VISIBLE; //adds the save button if it's on the api
+
             val recipeIngredientsList = mutableListOf(recipe.strIngredient1, recipe.strIngredient2,
                 recipe.strIngredient3, recipe.strIngredient4, recipe.strIngredient5,
                 recipe.strIngredient6, recipe.strIngredient7, recipe.strIngredient8,

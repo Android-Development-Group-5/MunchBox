@@ -18,6 +18,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 
 private const val TAG = "DetailedActivity"
@@ -41,6 +45,7 @@ class DetailedActivity : AppCompatActivity() {
         val recipeInstruction: TextView = findViewById(R.id.detailed_recipe_instructions)
         val postInteraction = findViewById<View>(R.id.postInteraction)
         val externalLinkButton = findViewById<ImageButton>(R.id.externalLinkBtn)
+        val saveButton = findViewById<ImageButton>(R.id.saveBtn)
 
         detailedActivityRecyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -92,6 +97,36 @@ class DetailedActivity : AppCompatActivity() {
             } catch (e: ActivityNotFoundException) {
                 Log.e("Source Url:", recipe.strSource.toString())
             }
+        }
+
+        FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().currentUser?.uid.toString()).child("Discoveries").child(
+            recipe.idMeal.toString()
+        ).get().addOnSuccessListener{ d ->
+            if (d.value == true) {
+                saveButton.setImageResource(R.drawable.baseline_star_24)
+            } else {
+                saveButton.setImageResource(R.drawable.baseline_star_border_24)
+            }
+        }
+
+        saveButton.setOnClickListener {
+            val uid = FirebaseAuth.getInstance().currentUser?.uid.toString();
+            val ref = FirebaseDatabase.getInstance().getReference("Users").child(uid).child("Discoveries").child(
+                recipe.idMeal.toString()
+            )
+            ref.get().addOnSuccessListener { d ->
+                if (d.value == null) {
+                    saveButton.setImageResource(R.drawable.baseline_star_24)
+                    ref.setValue(true)
+                } else {
+                    saveButton.setImageResource(R.drawable.baseline_star_border_24)
+                    ref.setValue(null);
+                }
+
+
+            }
+
+
         }
     }
 

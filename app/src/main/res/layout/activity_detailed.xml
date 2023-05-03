@@ -96,6 +96,13 @@
                                 android:layout_height="30dp"
                                 android:background="@drawable/external_link"
                                 android:layout_gravity="center"/>
+
+                            <ImageButton
+                                android:id="@+id/saveBtn"
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/baseline_star_border_24" />
                         </LinearLayout>
 
                         <TextView

@@ -50,7 +50,7 @@ class AddRecipeFragment : Fragment() {
 
     private lateinit var recipeImage: ImageView
 
-    var image_path = ""
+    private var image_path = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

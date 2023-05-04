@@ -55,7 +55,7 @@ class AddRecipeFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
 
-    var image_path = ""
+    private var image_path = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

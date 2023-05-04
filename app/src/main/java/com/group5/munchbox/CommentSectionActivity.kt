@@ -13,6 +13,8 @@ import android.view.View.GONE
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -46,10 +48,16 @@ class CommentSectionActivity : AppCompatActivity() {
         }
 
         val commentEntry : EditText = findViewById(R.id.commentEntry)
-        val commentSubmit : Button = findViewById(R.id.CommentSubmit)
+        val commentSubmit : ImageButton = findViewById(R.id.CommentSubmit)
         val commentsListRecyclerView : RecyclerView = findViewById(R.id.commentsList)
         commentsListRecyclerView.layoutManager = LinearLayoutManager(this)
         commentsListRecyclerView.adapter = CommentsAdapter(this, comments)
+        var dividerItemDecoration = DividerItemDecoration(this, RecyclerView.VERTICAL)
+        ResourcesCompat.getDrawable(resources, R.drawable.divider, null)?.let{
+            dividerItemDecoration.setDrawable(it)
+        }
+        commentsListRecyclerView.addItemDecoration(dividerItemDecoration)
+
         commentSubmit.setOnClickListener {
             if(commentEntry.text.toString() != ""){
                 val database = Firebase.database

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="90dp">
+    android:layout_height="90dp"
+    android:background="#F4F4F4">
 
     <ImageView
         android:id="@+id/profile_picture"
@@ -34,6 +35,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="3dp"
             style="@style/TextAppearance.Material3.BodyLarge"
+            android:textColor="#363649"
             android:text="Name"/>
 
         <TextView
@@ -43,6 +45,7 @@
             android:textSize="13sp"
             android:lines="3"
             android:ellipsize="end"
+            android:textColor="#656870"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
 
     </LinearLayout>

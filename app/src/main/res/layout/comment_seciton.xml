@@ -1,27 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/comment_section"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/comment_section"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:alpha="0.6"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backdrop" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/view2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-<EditText
-    app:layout_constraintTop_toTopOf="parent"
-    android:id="@+id/commentEntry"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="Leave Your Comment..."/>
-<Button
-    app:layout_constraintTop_toBottomOf="@id/commentEntry"
-    app:layout_constraintEnd_toEndOf="parent"
-    android:id="@+id/CommentSubmit"
-    android:layout_width="100dp"
-    android:layout_height="45dp"
-    android:text="Comment"
-    android:textSize="10dp"/>
-<androidx.recyclerview.widget.RecyclerView
-    app:layout_constraintTop_toBottomOf="@id/CommentSubmit"
-    android:layout_marginTop="25dp"
-    android:id="@+id/commentsList"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="15dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/detailed_recipe_image"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:contentDescription="@string/food_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/shrimp_scampi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp">
+
+            <TextView
+                android:id="@+id/commentsLabel"
+                style="@style/TextAppearance.Material3.TitleLarge"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="Comments (0)"
+                android:textColor="#25265E"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:background="@color/white"
+                app:layout_constraintTop_toTopOf="parent"
+                android:elevation="1dp"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:paddingTop="35dp"
+                android:paddingBottom="60dp"
+                android:id="@+id/commentsList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toTopOf="@id/addCommentLayout"
+                app:layout_constraintTop_toBottomOf="@id/commentsLabel"
+                tools:listitem="@layout/comment_item" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addCommentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:flow_horizontalAlign="center"
+                android:elevation="1dp">
+
+
+                <EditText
+                    android:id="@+id/commentEntry"
+                    android:layout_width="250dp"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="10dp"
+                    android:hint="Leave A Comment..."
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:background="@drawable/rounded_corner"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#686868"
+                    />
+
+                <ImageButton
+                    android:id="@+id/CommentSubmit"
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="10dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/send"
+                    android:scaleType="centerInside"
+                    android:background="@color/purple_500"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

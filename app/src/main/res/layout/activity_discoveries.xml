@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DiscoveriesActivity">
+    tools:context=".DiscoveriesActivity"
+    android:background="@color/black">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -30,14 +31,23 @@
             style="@style/TextAppearance.Material3.HeadlineLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:background="#C1004D40"
-            android:gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="3dp"
+            android:gravity="left"
             android:text="Discoveries"
-            android:textColor="#25265E"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
+            android:textSize="45sp"
             app:layout_constraintBottom_toTopOf="@id/detailed_recipe_username"
             tools:text="Discoveries" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/white"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="10dp"/>
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/discover_feed_swipe_refresh"

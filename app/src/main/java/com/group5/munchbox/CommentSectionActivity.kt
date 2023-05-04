@@ -4,6 +4,7 @@ import CommentsAdapter
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Color
+import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -50,6 +51,8 @@ class CommentSectionActivity : AppCompatActivity() {
         val commentEntry : EditText = findViewById(R.id.commentEntry)
         val commentSubmit : ImageButton = findViewById(R.id.CommentSubmit)
         val commentsListRecyclerView : RecyclerView = findViewById(R.id.commentsList)
+        val commentsLabel : TextView = findViewById(R.id.commentsLabel)
+        val recipeImageView : ImageView = findViewById(R.id.detailed_recipe_image)
         commentsListRecyclerView.layoutManager = LinearLayoutManager(this)
         commentsListRecyclerView.adapter = CommentsAdapter(this, comments)
         var dividerItemDecoration = DividerItemDecoration(this, RecyclerView.VERTICAL)
@@ -57,6 +60,17 @@ class CommentSectionActivity : AppCompatActivity() {
             dividerItemDecoration.setDrawable(it)
         }
         commentsListRecyclerView.addItemDecoration(dividerItemDecoration)
+
+        commentsLabel.text = "Comments (0)"
+        if(recipe.comments != null){
+            var commentCount = recipe.comments?.size.toString()
+            commentsLabel.text = "Comments ($commentCount)"
+        }
+        val imgPath = recipe.recipeImage
+        Glide.with(this)
+            .load(storageReference.child("$imgPath.png"))
+            .transform(CenterCrop())
+            .into(recipeImageView)
 
         commentSubmit.setOnClickListener {
             if(commentEntry.text.toString() != ""){

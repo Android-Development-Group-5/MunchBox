@@ -106,9 +106,9 @@ class DetailedActivity : AppCompatActivity() {
             recipe.idMeal.toString()
         ).get().addOnSuccessListener{ d ->
             if (d.value == true) {
-                saveButton.setImageResource(R.drawable.baseline_star_24)
+                saveButton.setImageResource(R.drawable.star_filled)
             } else {
-                saveButton.setImageResource(R.drawable.baseline_star_border_24)
+                saveButton.setImageResource(R.drawable.star_outline)
             }
         }
 
@@ -119,10 +119,10 @@ class DetailedActivity : AppCompatActivity() {
             )
             ref.get().addOnSuccessListener { d ->
                 if (d.value == null) {
-                    saveButton.setImageResource(R.drawable.baseline_star_24)
+                    saveButton.setImageResource(R.drawable.star_filled)
                     ref.setValue(true)
                 } else {
-                    saveButton.setImageResource(R.drawable.baseline_star_border_24)
+                    saveButton.setImageResource(R.drawable.star_outline)
                     ref.setValue(null);
                 }
 

@@ -110,11 +110,15 @@
 
                             <ImageButton
                                 android:id="@+id/saveBtn"
-                                android:layout_width="38dp"
-                                android:layout_height="38dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:layout_gravity="center"
-                                android:background="@drawable/baseline_star_border_24"
-                                android:visibility="gone" />
+                                android:layout_marginHorizontal="15dp"
+                                android:background="@drawable/star_outline"
+                                android:scaleType="fitCenter"
+                                android:visibility="gone"
+
+                                 />
                         </LinearLayout>
 
                         <TextView
